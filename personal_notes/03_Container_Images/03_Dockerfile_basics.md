@@ -27,7 +27,7 @@ It runs shell commands inside the container while it is building it. Usually for
 ><br/>
 
 `WORKDIR path/to/directory/`<br/>
-Specifies the current working directory inside the container. It's like making `RUN cd path/to/directory/`.
+Specifies the current working directory inside the container. It's like making `RUN cd path/to/directory/`. If the directory doesn't exist, it creates it.
 >**Best practice**: Do not use `RUN cd` command
 
 `COPY path/to/local/file.html path/inside/container/file.html`<br/>
