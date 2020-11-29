@@ -76,9 +76,10 @@ networks: # Optional, same as docker network create
 ### Basic commands of docker-compose CLI tool
 `docker-compose up`<br/>
 Setups volumes, networks, etc, and starts all containers.
+>**Note:** Use `--build` option to rebuild the image first.
 
 `docker-compose down`<br/>
-Stops all containers and removes containers, volumes, networks.
+Stops all containers and removes containers, networks.
 > **Note:** Add the `-v` option to prune all volumes created by the docker-compose file.
 
 `docker-compose ps`<br/>
@@ -86,3 +87,6 @@ Lists all containers running.
 
 `docker-compose top`<br/>
 Lists all services running inside the containers.
+
+`docker-compose build`<br/>
+Build or rebuild an image.
