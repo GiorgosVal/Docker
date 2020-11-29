@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  drupal:
+    image: drupal
+    ports:
+      - "8080:80"
+    volumes:
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles
+      - drupal-sites:/var/www/html/sites
+      - drupal-themes:/var/www/html/themes
+    networks: 
+      - app_net
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: drupal
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    volumes:
+      - my_postgres_data:/var/lib/postgresql/data
+    networks:
+      - app_net
+
+volumes:
+  drupal-modules:
+  drupal-profiles:
+  drupal-sites:
+  drupal-themes:
+  my_postgres_data:
+networks:
+  app_net:
+
+# Notes: After services are up,
+#   drupal service should be able to listen to localhost:8080
+#   drupal should be able to connect to postgres on postgres:5432

@@ -1,0 +1,23 @@
+version: '2'
+
+# based off compose-sample-2, only we build nginx.conf into image
+# uses sample HTML static site from https://startbootstrap.com/themes/agency/
+
+services:
+  proxy:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports:
+      - '80:80'
+  web:
+    image: httpd
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
+
+
+
+# This docker-compose:
+#   creates an image from the nginx.Dockerfile file (if the image doesn't exist)
+#   runs an httpd server, and uses bind-mounts the ./html directory inside it
+#   (so as to be able to see live changes in the ./html files)
