@@ -33,7 +33,7 @@ This command:
 - Starts the container by using the CMD in the image Dockerfile.
 - The `--detach` tells the docker to run in the background, and returns the docker container id.
 
->**Example:**
+>**Example 1:**
 >
 >`docker container run --publish 80:80 --detach --name myhost nginx:1.17.0`
 >
@@ -47,10 +47,20 @@ This command:
 >**Note 4:** If you don't specify `--name` a random name will be given to the container.<br/>
 >**Note 5:** If you don't specify `--detach` after executing the command you'll see (and follow) the logs of the container.<br/>
 >**Note 6:** If you don't specify `:version` Docker will download the latest version of the image.<br/>
->**Note 7:** Generic usage: `docker container run [OPTIONS] IMAGE [COMMAND] [ARG...]`
+>**Note 7:** Generic usage: `docker container run [OPTIONS] IMAGE [COMMAND] [ARG...]`<br/>
 >**Note 8:** For more info: `docker container run --help`
-><br>
-
+><br/><br/>
+>**Example 2:**
+>
+>`docker container run --rm --network mynet centos curl -s 192.168.0.86:22`
+>
+>What the above command does:
+>1. Downloads the latest `centos` image (if not exists)
+>2. Starts a new centos container with a random name.
+>3. Attaches this container to a network named `mynet`.
+>4. Executes the command `curl -s 192.168.0.86:22`
+>5. As soon as the `curl` command finishes it's job, the container stops.
+>6. The `--rm` removes the stopped container
 ---
 `docker container stop <container id>`<br/>
 `docker container stop <container name>`<br/>

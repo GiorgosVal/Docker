@@ -4,4 +4,4 @@ For example clone this [github project](https://github.com/BretFisher/udemy-dock
 
 `docker container run -p 80:4000 -v "$(pwd):/site" bretfisher/jekyll-serve`
 
-This will run a page with jekyll, in your `localhost:8`. In the `_posts` folder you can edit the file and by refreshing the browser you'll immediately see the changes.
+This will run a page with jekyll, in your `localhost:80`. In the `_posts` folder you can edit the file and by refreshing the browser you'll immediately see the changes.
